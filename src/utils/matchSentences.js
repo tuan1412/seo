@@ -1,13 +1,13 @@
 var getSentencesInParagraph = function (text) {
     var sentences = [];
-    var regex = /[^\.\!\?]*[\.\!\?]/ig;
+    var regex = /([^\.\!\?\s].*?)[\.\!\?]/ig;
     var match;
     while ((match = regex.exec(text)) !== null) {
         sentences.push(match);
     };
 
     return sentences.map(function(sentence) {
-        return sentence[0];
+        return sentence[1];
     });
 }
 

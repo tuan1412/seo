@@ -1,6 +1,7 @@
 var data = require('../example/paper.json');
 var removeInlineHtmlTags = require('./removeHtmlTags');
 var getSentences = require('./matchSentences');
+var getWords = require('./matchWords');
 
 var getParagraphsInTags = function (text) {
     var paragraphs = [];
@@ -8,7 +9,6 @@ var getParagraphsInTags = function (text) {
     var match;
 
     while ((match = regex.exec(text)) !== null) {
-        console.log(match);
         paragraphs.push(match);
     };
 
@@ -18,3 +18,4 @@ var getParagraphsInTags = function (text) {
 }
 
 var rs = getParagraphsInTags(data.content);
+console.log(getWords(getSentences(rs[1])[1]));
