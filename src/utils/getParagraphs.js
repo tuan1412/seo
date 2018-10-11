@@ -19,6 +19,10 @@ var getParagraphsInTags = function (text) {
         return removeInlineHtmlTags(paragraph[1]);
     });
 
+    paragraphs.filter(function(paragraph) {
+        return paragraph === "";
+    });
+
     if (paragraphs.length === 0) {
         paragraphs = [text];
     }

@@ -1,6 +1,6 @@
 var getSentencesInParagraph = function (text) {
     var sentences = [];
-    var regex = /([^\.\!\?\s].*?)[\.\!\?]/ig;
+    var regex = /([^\.\!\?\s].*?)[\.\!\?\n]/ig;
     var match;
     while ((match = regex.exec(text)) !== null) {
         sentences.push(match);
