@@ -24,10 +24,13 @@ var getReadability = function(text) {
     paragraphs.forEach(function(paragraph) {
         sentences = sentences.concat(getSentences(paragraph));
     });
+    console.log(sentences);
+    console.log(sentences.length);
     var longSentences = sentences.filter(function(sentence) {
         return getWords(sentence).length > maxLengthSentences;
     });
-    var percentLongSentences = ((longSentences.length / sentences.length) * 100).toFixed(0);
+
+    var percentLongSentences = ((longSentences.length / sentences.length) * 100).toFixed(1);
     var hasMaxPercentLongSentences = percentLongSentences > maxPercentLengthSentences;
 
     //Ít nhất 30% câu cần từ nối, cụm từ nối
@@ -35,7 +38,7 @@ var getReadability = function(text) {
     var transitionWordSentences = sentences.filter(function(sentence) {
         return hasTransitionWord(sentence);
     });
-    var percentTransitionWordSentences = ((transitionWordSentences.length / sentences.length) * 100).toFixed(0);
+    var percentTransitionWordSentences = ((transitionWordSentences.length / sentences.length) * 100).toFixed(1);
     var hasMinPercentTransitionWordSentences = percentTransitionWordSentences > minPercentTransitionWordSentences;
 
     return {
@@ -45,11 +48,13 @@ var getReadability = function(text) {
         transitionWordSentences: transitionWordSentences,
         hasHeading2: hasHeading2,
         hasMaxPercentLongSentences: hasMaxPercentLongSentences,
+        percentLongSentences: percentLongSentences,
+        percentTransitionWordSentences: percentTransitionWordSentences,
         hasMinPercentTransitionWordSentences: hasMinPercentTransitionWordSentences
     }
 }
 
-var data = require('../example/paper.json');
+var data = require('../example/test.json');
 var readability = getReadability(data.content);
-
 console.log(readability.longSentences);
+console.log(readability.percentLongSentences);

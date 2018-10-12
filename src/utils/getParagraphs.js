@@ -5,7 +5,7 @@ var removeDotNumber = require('./removeDotNumber');
 var getParagraphsInTags = function (text) {
 
     var text = removeNonparagraph(text);
-    text = removeDotNumber(text);
+    // text = removeDotNumber(text);
     
     var paragraphs = [];
     var regex = /<p(?:[^>]+)?>(.*?)<\/p>/ig;

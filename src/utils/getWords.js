@@ -8,6 +8,9 @@ var getWords = function (text) {
     var words = text.split(/\s/g);
     words = words.map(function(word) {
         return removePunctuation(word);
+    });
+    words = words.filter(function(word) {
+        return word !== "";
     })
     return words;
 }
