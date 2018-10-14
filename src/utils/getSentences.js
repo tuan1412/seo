@@ -66,7 +66,7 @@ function isValidSentenceBeginning(sentenceBeginning) {
 }
 
 var getSentences = function (text) {
-    var splitSentences = text.split(/(?<=\.|!|\?)\s|&nbsp;/);
+    var splitSentences = text.split(/(?<=\.|!|\?)(?:\s|&nbsp;)/);
     var sentences = [];
     var lastSentence = "";
     splitSentences.forEach(function(cur) {
@@ -84,6 +84,6 @@ var getSentences = function (text) {
 }
 
 // console.log(isValidSentenceBeginning(' "Nên mình cần phải tập trung <b>rất nhiều</b>".'))
-console.log(getSentences('<b>Thiếu luyện tập: </b>khi cơ thể không được vận động cũng có thể dẫn tới trầm cảm. Bởi bình thường não sẽ sản sinh ra những chất hóa học tạo cảm giác tốt  như dopamine và serotonin. Việc tập luyện thường xuyên sẽ giúp não sản sinh ra nhiều chất này giúp mọi người cảm thấy luôn năng động và hưng phấn.'));
+console.log(getSentences('<b>Thiếu luyện tập: </b>khi cơ thể không được vận động <a href="http://suckhoehangngay/lam-cach-nao"/>&nbsp;cũng có thể dẫn tới trầm cảm. Bởi bình thường não sẽ sản sinh ra những chất hóa học tạo cảm giác tốt  như dopamine và serotonin. Việc tập luyện thường xuyên sẽ giúp não sản sinh ra nhiều chất này giúp mọi người cảm thấy luôn năng động và hưng phấn.'));
 module.exports = getSentences
 
