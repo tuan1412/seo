@@ -1,10 +1,12 @@
 var removeSpaces = require('./removeSpaces');
+var removeInline = require('./removeHtmlTags');
 
 var getWords = function (text) {
     if (text === "") {
         return [];
     }
     text = removeSpaces(text);
+    text = removeInline(text);
     var words = text.split(/\s/g);
     words = words.map(function(word) {
         return removePunctuation(word);
@@ -25,4 +27,5 @@ var removePunctuation = function(text) {
     return text;
 }
 
+console.log(getWords("Một quả dưa  <b> giá </b> từ 500.000 - 1.000.000 vẫn bán đắt hàng!"))
 module.exports = getWords

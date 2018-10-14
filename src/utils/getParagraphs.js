@@ -1,6 +1,6 @@
-var removeInlineHtmlTags = require('./removeHtmlTags');
+// var removeInlineHtmlTags = require('./removeHtmlTags');
 var removeNonparagraph = require('./removeNonParagraph');
-var removeDotNumber = require('./removeDotNumber');
+// var removeDotNumber = require('./removeDotNumber');
 
 var getParagraphsInTags = function (text) {
 
@@ -16,7 +16,7 @@ var getParagraphsInTags = function (text) {
     };
 
     paragraphs = paragraphs.map(function(paragraph) {
-        return removeInlineHtmlTags(paragraph[1]);
+        return paragraph[1];
     });
 
     paragraphs.filter(function(paragraph) {
